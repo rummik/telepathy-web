@@ -1,0 +1,48 @@
+{
+	"name": "telepathy-web",
+	"description": "A telepathic password manager for browsers",
+	"version": "0.0.21.0",
+	"homepage": "https://github.com/rummik/telepathy-web",
+	"author": {
+		"name": "rummik",
+		"email": "r@9k1.us",
+		"url": "http://www.rummik.com/"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/rummik/telepathy-web.git"
+	},
+	"bugs": {
+		"url": "https://github.com/rummik/telepathy-web/issues"
+	},
+	"licenses": [
+		{
+			"type": "MPL",
+			"url": "https://github.com/rummik/telepathy-web/blob/master/LICENSE-MPL"
+		}
+	],
+	"engines": {
+		"node": ">= 0.8.0"
+	},
+	"scripts": {
+		"test": "grunt test"
+	},
+	"dependencies": {
+		"telepathy": "~0.2.1",
+		"zepto-browserify": "~1.0.0",
+		"underscore": "~1.5.1"
+	},
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-jshint": "~0.4.3",
+		"grunt-contrib-connect": "~0.4.1",
+		"grunt-contrib-watch": "~0.4.3",
+		"grunt-browserify": "~1.2.4"
+	},
+	"keywords": [
+		"telepathic",
+		"password",
+		"manager",
+		"android"
+	]
+}
