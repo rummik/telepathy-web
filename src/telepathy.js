@@ -34,6 +34,10 @@
 		}
 	});
 
+	_.each(_.keys(Telepathy.algorithms), function(key) {
+		$('#algorithm').append($('<option>').val(key).text(key).prop('selected', key == 'SHA3'));
+	});
+
 	var UI = {
 		settings: {
 		},

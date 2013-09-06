@@ -28,7 +28,7 @@
 		"test": "grunt test"
 	},
 	"dependencies": {
-		"telepathy": "~0.2.1",
+		"telepathy": "~0.3.0",
 		"zepto-browserify": "~1.0.0",
 		"underscore": "~1.5.1"
 	},

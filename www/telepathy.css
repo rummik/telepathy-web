@@ -1,6 +1,8 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	overflow: auto;
 }
 
 body {
@@ -8,13 +10,14 @@ body {
 	color: #fff;
 }
 
-body, input, button {
+body, input, select, button {
 	font-family: Exo, sans-serif;
 }
 
-input, button, a, div {
+input, select, button, a, div {
 	box-sizing: border-box;
 	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out;
 	transition-property: box-shadow, background, color, opacity,
 	                     -webkit-filter, -moz-filter, -ms-filter, -o-filter, filter;
 }
@@ -24,8 +27,9 @@ a {
 	text-decoration: none;
 }
 
-input, button {
+input, select, button {
 	padding: 3px 5px;
+	margin: 0;
 	border: 0;
 	border-radius: 2px;
 	font-size: inherit;
@@ -47,12 +51,16 @@ button {
 			background: hsl(202, 88%, 45%);
 		}
 
-input {
-	color: #444;
+select {
+	cursor: pointer;
+}
+
+input, select {
+	color: #333;
 	background: #ccc;
 }
-	input:focus {
-		color: #222;
+	input:focus, select:focus {
+		color: #111;
 		background: #eee;
 	}
 
@@ -88,10 +96,11 @@ fieldset {
 	label {
 		display: block;
 		cursor: pointer;
+		margin: 0 0 5px;
 	}
 		label.radio {
 			display: inline-block;
-			margin-right: 10px;
+			margin: -5px 10px 0 0;
 			padding: 5px 0;
 		}
 			label.radio input {
@@ -109,13 +118,13 @@ fieldset {
 		margin-top: 15px;
 	}
 
-	fieldset input {
+	fieldset input, fieldset select {
 		width: 100%;
 	}
 
 .modal {
 	position: absolute;
-	top: 0;
+	top: -100%;
 	left: 50%;
 	width: 500px;
 	margin: 0 0 0 -250px;
@@ -125,16 +134,14 @@ fieldset {
 	border-radius: 2px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-
-	display: none;
 }
 	.modal.open {
-		display: block;
-		z-index: 1;
+		top: 0;
+		z-index: 500;
 	}
 
 	.modal fieldset {
-		padding: 5px 20px 5px 10px;
+		padding: 5px 10px;
 	}
 
 	.modal .controls {
@@ -145,6 +152,12 @@ fieldset {
 		border-radius: inherit;
 	}
 
+.content-wrapper {
+	background: #222 url(background.png);
+	height: 100%;
+	overflow: auto;
+}
+
 .content {
 	margin: auto;
 	max-width: 600px;
@@ -153,7 +166,6 @@ fieldset {
 	.content fieldset div {
 		width: 50%;
 		float: left;
-		padding-right: 10px;
 	}
 		.content fieldset div + div {
 			margin-top: 5px;
@@ -206,7 +218,7 @@ fieldset {
 	text-align: right;
 }
 
-.modal.open ~ .content,
+.modal.open ~ .content-wrapper,
 .modal.open ~ .settings,
 .modal.open ~ .social {
 	-webkit-filter: grayscale(80%) blur(2px);
@@ -216,13 +228,32 @@ fieldset {
 	filter: grayscale(80%) blur(2px);
 }
 
-.modal.open ~ .content *,
+.modal-bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+.modal.open ~ .modal-bg {
+	display: block;
+	background: rgba(0, 0, 0, .5);
+	z-index: 100;
+}
+
+.modal.open ~ .content-wrapper *,
 .modal.open ~ .settings *,
 .modal.open ~ .social * {
 	cursor: default !important;
 }
 
 @media (max-width: 600px) {
+	input, button, a, div {
+		transition-property: none;
+	}
+
 	.settings, .social {
 		display: inline-block;
 		width: auto;

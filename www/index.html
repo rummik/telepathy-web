@@ -31,8 +31,14 @@
 				</label>
 
 				<label class="radio">
-					<input type="radio" name="save-secret"> No
+					<input type="radio" name="save-secret" checked> No
 				</label>
+			</div>
+
+			<div>
+				<label>Algorithm</label>
+				<select id="algorithm">
+				</select>
 			</div>
 		</fieldset>
 
@@ -42,29 +48,33 @@
 		</div>
 	</div>
 
-	<div class="content">
-		<h1>Telepathy<small> - A telepathic password manager.</small></h1>
-		<input id="domain" placeholder="Example / example.com">
-		<div id="password">&nbsp;</div>
-		<fieldset>
-			<!--
-			<div>
-				<label for="index">Password Index</label>
-				<input name="password-index" value="0">
-			</div>
-			-->
+	<div class="modal-bg"></div>
 
-			<div>
-				<label>Lax Mode</label>
-				<label class="radio">
-					<input type="radio" name="lax"> Yes
-				</label>
+	<div class="content-wrapper">
+		<div class="content">
+			<h1>Telepathy<small> - A telepathic password manager.</small></h1>
+			<input id="domain" autocapitalize="off" autocorrect="off" placeholder="Example / example.com">
+			<div id="password">&nbsp;</div>
+			<fieldset>
+				<!--
+				<div>
+					<label for="index">Password Index</label>
+					<input name="password-index" value="0">
+				</div>
+				-->
 
-				<label class="radio">
-					<input type="radio" name="lax" checked> No
-				</label>
-			</div>
-		</fieldset>
+				<div>
+					<label>Lax Mode</label>
+					<label class="radio">
+						<input type="radio" name="lax"> Yes
+					</label>
+
+					<label class="radio">
+						<input type="radio" name="lax" checked> No
+					</label>
+				</div>
+			</fieldset>
+		</div>
 	</div>
 
 	<div class="settings">
