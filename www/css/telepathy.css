@@ -98,12 +98,12 @@ fieldset {
 		cursor: pointer;
 		margin: 0 0 5px;
 	}
-		label.radio {
+		label.radio, label.checkbox {
 			display: inline-block;
 			margin: -5px 10px 0 0;
 			padding: 5px 0;
 		}
-			label.radio input {
+			label.radio input, label.checkbox input {
 				width: auto;
 				vertical-align: text-top;
 				margin-top: 4px;
