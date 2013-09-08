@@ -19,6 +19,10 @@
 		$(this).parents('.modal').removeClass('open');
 	});
 
+	$('.modal-close, input[name=lax]').on('click change', function() {
+		$('#domain').trigger('keydown');
+	});
+
 	$('.modal-bg').on('click', function(event) {
 		if ($('.modal.open').length && !$(event.target).parents('.modal').length) {
 			event.preventDefault();
