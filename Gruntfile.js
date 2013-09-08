@@ -17,6 +17,11 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
+			packagejson: {
+				files: '<%= jshint.packagejson %>',
+				tasks: ['jshint:packagejson', 'browserify:dist']
+			},
+
 			gruntfile: {
 				files: '<%= jshint.gruntfile %>',
 				tasks: ['jshint:gruntfile']
@@ -43,6 +48,7 @@ module.exports = function(grunt) {
 		},
 
 		jshint: {
+			packagejson: 'package.json',
 			gruntfile: 'Gruntfile.js',
 			dist: 'src/**/*.{js,json}',
 
