@@ -19,12 +19,12 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile %>',
-				tasks: ['jshint:gruntfile', 'manifest:dist']
+				tasks: ['jshint:gruntfile']
 			},
 
 			dist: {
 				files: '<%= jshint.dist %>',
-				tasks: ['jshint:dist', 'browserify:dist', 'manifest:dist']
+				tasks: ['jshint:dist', 'browserify:dist']
 			},
 
 			livereload: {
