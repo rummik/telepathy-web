@@ -39,7 +39,7 @@
 	});
 
 	// Disable scroll if iOS standalone is happening
-	if (!window.navigator.standalone) {
+	if (window.navigator.standalone) {
 		$(document).on('touchmove', function(event) {
 			event.preventDefault();
 			return false;
