@@ -44,12 +44,12 @@
 			<fieldset>
 				<div>
 					<label for="default-username">Default Username</label>
-					<input name="default-username" placeholder="myname">
+					<input name="default-username" id="default-username" placeholder="myname">
 				</div>
 
 				<div>
-					<label for="secret">Shared Secret</label>
-					<input type="password" name="shared-secret" placeholder="It was a dark and stormy night, not fit for man nor beast...">
+					<label for="shared-secret">Shared Secret</label>
+					<input type="password" name="shared-secret" id="shared-secret" placeholder="It was a dark and stormy night, not fit for man nor beast...">
 				</div>
 
 				<div>
@@ -64,8 +64,8 @@
 				</div>
 
 				<div>
-					<label>Algorithm</label>
-					<select name="algorithm">
+					<label for="algorithm">Algorithm</label>
+					<select name="algorithm" id="algorithm">
 						<option value="SHA224">SHA-224</option>
 						<option value="SHA256" selected>SHA-256</option>
 						<option value="SHA384">SHA-384</option>
