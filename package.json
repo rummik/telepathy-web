@@ -1,7 +1,7 @@
 {
 	"name": "telepathy-web",
 	"description": "A telepathic password manager for browsers",
-	"version": "0.0.31-dev",
+	"version": "0.1.031",
 	"homepage": "https://github.com/rummik/telepathy-web",
 	"author": {
 		"name": "rummik",
