@@ -40,7 +40,7 @@
 
 	// Disable scroll if iOS standalone is happening
 	if (!window.navigator.standalone) {
-		$(document).bind('touchmove', function(event) {
+		$(document).on('touchmove', function(event) {
 			event.preventDefault();
 			return false;
 		});
