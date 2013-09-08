@@ -3682,14 +3682,26 @@ module.exports.Zepto = Zepto;
 
 	// todo: show dialog prompt for default username and master password
 
-	$('#domain').on('keydown', function() {
-		_.defer(function(that) {
-			$('#password').text(telepathy.password(that.value));
-		}, this);
-	});
+	// google.com: u25YhZz44m
+	$('#domain').on('keydown', _.debounce(function() {
+		$('#password').text(telepathy.password({
+			alphabet: $('#lax').attr('checked') ?
+			            Telepathy.alphabet.base62 :
+			            Telepathy.alphabet.base94,
+			domain: this.value
+		}));
+	}));
 
 	$('.modal-close').on('click', function() {
 		$(this).parents('.modal').removeClass('open');
+	});
+
+	$('.modal-bg').on('click', function(event) {
+		if ($('.modal.open').length && !$(event.target).parents('.modal').length) {
+			event.preventDefault();
+			event.stopPropagation();
+			$('.modal.open').removeClass('open');
+		}
 	});
 
 	$('#open-settings').on('click', function(event) {
@@ -3700,16 +3712,9 @@ module.exports.Zepto = Zepto;
 		}
 	});
 
-	$(window).on('click', function(event) {
-		if ($('.modal.open').length && !$(event.target).parents('.modal').length) {
-			event.preventDefault();
-			event.stopPropagation();
-			$('.modal.open').removeClass('open');
-		}
-	});
-
-	_.each(_.keys(Telepathy.algorithms), function(key) {
-		$('#algorithm').append($('<option>').val(key).text(key).prop('selected', key == 'SHA3'));
+	$(document).bind('touchmove', function(event) {
+		event.preventDefault();
+		return false;
 	});
 
 	var UI = {

@@ -3,7 +3,28 @@
 <title>Telepathy</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+
+<!-- iPhone -->
+<link href="/img/startup-320x480.png"
+	media="(device-width: 320px) and (device-height: 480px)
+		and (-webkit-device-pixel-ratio: 1)"
+	rel="apple-touch-startup-image">
+
+<!-- iPhone (Retina) -->
+<link href="/img/startup-640x920.png"
+	media="(device-width: 320px) and (device-height: 480px)
+		and (-webkit-device-pixel-ratio: 2)"
+	rel="apple-touch-startup-image">
+
+<!-- iPhone 5 -->
+<link href="/img/startup-640x1096.png"
+	media="(device-width: 320px) and (device-height: 568px)
+		and (-webkit-device-pixel-ratio: 2)"
+	rel="apple-touch-startup-image">
 
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Exo:200">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
@@ -27,7 +48,7 @@
 			<div>
 				<label>Save Shared Secret?</label>
 				<label class="radio">
-					<input type="radio" name="save-secret"> Yes
+					<input type="radio" name="save-secret" id="save-secret"> Yes
 				</label>
 
 				<label class="radio">
@@ -38,6 +59,10 @@
 			<div>
 				<label>Algorithm</label>
 				<select id="algorithm">
+					<option value="SHA224">SHA-224</option>
+					<option value="SHA256" selected>SHA-256</option>
+					<option value="SHA384">SHA-384</option>
+					<option value="SHA512">SHA-512</option>
 				</select>
 			</div>
 		</fieldset>
@@ -53,7 +78,7 @@
 	<div class="content-wrapper">
 		<div class="content">
 			<h1>Telepathy<small> - A telepathic password manager.</small></h1>
-			<input id="domain" autocapitalize="off" autocorrect="off" placeholder="Example / example.com">
+			<input id="domain" type="url" autocapitalize="off" autocorrect="off" placeholder="Example / example.com">
 			<div id="password">&nbsp;</div>
 			<fieldset>
 				<!--
@@ -66,7 +91,7 @@
 				<div>
 					<label>Lax Mode</label>
 					<label class="radio">
-						<input type="radio" name="lax"> Yes
+						<input type="radio" name="lax" id="lax"> Yes
 					</label>
 
 					<label class="radio">
