@@ -78,6 +78,10 @@ h1 {
 	font-size: 3em;
 	margin: 20px 0;
 }
+	h1 .version {
+		font-size: 0.2em;
+	}
+
 	h1 small {
 		display: block;
 		font-size: 0.35em;
