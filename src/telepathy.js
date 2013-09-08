@@ -39,13 +39,12 @@
 	});
 
 	// Disable scroll if iOS standalone is happening
-	$(document).bind('touchmove', function(event) {
-		if (!window.navigator.standalone)
-			return;
-
-		event.preventDefault();
-		return false;
-	});
+	if (!window.navigator.standalone) {
+		$(document).bind('touchmove', function(event) {
+			event.preventDefault();
+			return false;
+		});
+	}
 
 	var UI = {
 		settings: {
