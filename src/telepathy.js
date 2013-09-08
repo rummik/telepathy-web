@@ -7,11 +7,16 @@
 	    telepathy = new Telepathy();
 
 	$('#domain').on('keydown', _.debounce(function() {
+		var domain = this.value.replace(/^\s+|\s+$/g, '');
+
+		if (!domain.length)
+			return;
+
 		$('#password').text(telepathy.password({
 			alphabet: $('#lax').attr('checked') ?
 			            Telepathy.alphabet.base62 :
 			            Telepathy.alphabet.base94,
-			domain: this.value
+			domain: domain
 		}));
 	}));
 
