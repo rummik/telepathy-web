@@ -19,12 +19,12 @@ module.exports = function(grunt) {
 		watch: {
 			gruntfile: {
 				files: '<%= jshint.gruntfile %>',
-				tasks: 'jshint:gruntfile'
+				tasks: ['jshint:gruntfile', 'manifest:dist']
 			},
 
 			dist: {
 				files: '<%= jshint.dist %>',
-				tasks: ['jshint:dist', 'browserify:dist']
+				tasks: ['jshint:dist', 'browserify:dist', 'manifest:dist']
 			},
 
 			livereload: {
@@ -65,6 +65,27 @@ module.exports = function(grunt) {
 				globals: {
 				}
 			}
+		},
+
+		manifest: {
+			dist: {
+				options: {
+					basePath: 'www/',
+					preferOnline: true,
+					verbose: true,
+					timestamp: true
+				},
+
+				src: [
+					'css/*.css',
+					'js/*.js',
+					'img/*.png',
+					'font/*',
+					'index.html'
+				],
+
+				dest: 'www/manifest.appcache'
+			}
 		}
 	});
 
@@ -72,8 +93,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
+	grunt.loadNpmTasks('grunt-manifest');
 
 	grunt.registerTask('default', ['test', 'build']);
 	grunt.registerTask('test', ['jshint']);
-	grunt.registerTask('build', ['browserify']);
+	grunt.registerTask('build', ['browserify', 'manifest']);
 };

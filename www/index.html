@@ -1,120 +1,124 @@
 <!doctype html>
-<meta charset=utf-8>
-<title>Telepathy</title>
+<html manifest="manifest.appcache">
+	<head>
+		<meta charset=utf-8>
+		<title>Telepathy</title>
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
-<meta name="format-detection" content="telephone=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">-->
 
-<link rel="apple-touch-icon" href="/img/icon-57x57.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/img/icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/img/icon-114x114.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/img/icon-144x144.png">
+		<link rel="apple-touch-icon-precomposed" href="/img/icon-57x57.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/icon-72x72.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/icon-114x114.png">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/icon-144x144.png">
 
-<!-- iPhone -->
-<link href="/img/startup-320x480.png"
-	media="(device-width: 320px) and (device-height: 480px)
-		and (-webkit-device-pixel-ratio: 1)"
-	rel="apple-touch-startup-image">
+		<!-- iPhone -->
+		<link href="/img/startup-320x480.png"
+			media="(device-width: 320px) and (device-height: 480px)
+				and (-webkit-device-pixel-ratio: 1)"
+			rel="apple-touch-startup-image">
 
-<!-- iPhone (Retina) -->
-<link href="/img/startup-640x920.png"
-	media="(device-width: 320px) and (device-height: 480px)
-		and (-webkit-device-pixel-ratio: 2)"
-	rel="apple-touch-startup-image">
+		<!-- iPhone (Retina) -->
+		<link href="/img/startup-640x920.png"
+			media="(device-width: 320px) and (device-height: 480px)
+				and (-webkit-device-pixel-ratio: 2)"
+			rel="apple-touch-startup-image">
 
-<!-- iPhone 5 -->
-<link href="/img/startup-640x1096.png"
-	media="(device-width: 320px) and (device-height: 568px)
-		and (-webkit-device-pixel-ratio: 2)"
-	rel="apple-touch-startup-image">
+		<!-- iPhone 5 -->
+		<link href="/img/startup-640x1096.png"
+			media="(device-width: 320px) and (device-height: 568px)
+				and (-webkit-device-pixel-ratio: 2)"
+			rel="apple-touch-startup-image">
 
-<link rel="stylesheet" href="/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/telepathy.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/telepathy.css">
+	</head>
 
-<body>
-	<div class="modal open" id="settings">
-		<h2>Settings</h2>
+	<body>
+		<div class="modal open" id="settings">
+			<h2>Settings</h2>
 
-		<fieldset>
-			<div>
-				<label for="default-username">Default Username</label>
-				<input id="default-username" placeholder="myname">
-			</div>
-
-			<div>
-				<label for="secret">Shared Secret</label>
-				<input type="password" id="secret" placeholder="It was a dark and stormy night, not fit for man nor beast...">
-			</div>
-
-			<div>
-				<label>Save Shared Secret?</label>
-				<label class="radio">
-					<input type="radio" name="save-secret" id="save-secret"> Yes
-				</label>
-
-				<label class="radio">
-					<input type="radio" name="save-secret" checked> No
-				</label>
-			</div>
-
-			<div>
-				<label>Algorithm</label>
-				<select id="algorithm">
-					<option value="SHA224">SHA-224</option>
-					<option value="SHA256" selected>SHA-256</option>
-					<option value="SHA384">SHA-384</option>
-					<option value="SHA512">SHA-512</option>
-				</select>
-			</div>
-		</fieldset>
-
-		<div class="controls">
-			<button class="save-settings modal-close primary">Save</button>
-			<button class="modal-close">Cancel</button>
-		</div>
-	</div>
-
-	<div class="modal-bg"></div>
-
-	<div class="content-wrapper">
-		<div class="content">
-			<h1>Telepathy<small> - A telepathic password manager.</small></h1>
-			<input id="domain" type="url" autocapitalize="off" autocorrect="off" placeholder="Example / example.com">
-			<div id="password">&nbsp;</div>
 			<fieldset>
-				<!--
 				<div>
-					<label for="index">Password Index</label>
-					<input name="password-index" value="0">
+					<label for="default-username">Default Username</label>
+					<input id="default-username" placeholder="myname">
 				</div>
-				-->
 
 				<div>
-					<label>Lax Mode</label>
+					<label for="secret">Shared Secret</label>
+					<input type="password" id="secret" placeholder="It was a dark and stormy night, not fit for man nor beast...">
+				</div>
+
+				<div>
+					<label>Save Shared Secret?</label>
 					<label class="radio">
-						<input type="radio" name="lax" id="lax"> Yes
+						<input type="radio" name="save-secret" id="save-secret"> Yes
 					</label>
 
 					<label class="radio">
-						<input type="radio" name="lax" checked> No
+						<input type="radio" name="save-secret" checked> No
 					</label>
+				</div>
+
+				<div>
+					<label>Algorithm</label>
+					<select id="algorithm">
+						<option value="SHA224">SHA-224</option>
+						<option value="SHA256" selected>SHA-256</option>
+						<option value="SHA384">SHA-384</option>
+						<option value="SHA512">SHA-512</option>
+					</select>
 				</div>
 			</fieldset>
+
+			<div class="controls">
+				<button class="save-settings modal-close primary">Save</button>
+				<button class="modal-close">Cancel</button>
+			</div>
 		</div>
-	</div>
 
-	<div class="settings">
-		<a href="#" id="open-settings"><i class="icon-cog"></i></a>
-	</div>
+		<div class="modal-bg"></div>
 
-	<div class="social">
-		<a href="https://www.gittip.com/rummik/" target="_blank" class="gittip"><i class="icon-gittip"></i></a>
-		<a href="https://twitter.com/rummik" target="_blank" class="twitter"><i class="icon-twitter-sign"></i></a>
-		<a href="https://github.com/rummik" target="_blank" class="github"><i class="icon-github"></i></a>
-	</div>
+		<div class="content-wrapper">
+			<div class="content">
+				<h1>Telepathy<small> - A telepathic password manager.</small></h1>
+				<input id="domain" type="url" autocapitalize="off" autocorrect="off" placeholder="Example / example.com">
+				<div id="password">&nbsp;</div>
+				<fieldset>
+					<!--
+					<div>
+						<label for="index">Password Index</label>
+						<input name="password-index" value="0">
+					</div>
+					-->
 
-	<script src="/js/telepathy.js"></script>
-</body>
+					<div>
+						<label>Lax Mode</label>
+						<label class="radio">
+							<input type="radio" name="lax" id="lax"> Yes
+						</label>
+
+						<label class="radio">
+							<input type="radio" name="lax" checked> No
+						</label>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="settings">
+			<a href="#" id="open-settings"><i class="icon-cog"></i></a>
+		</div>
+
+		<div class="social">
+			<a href="https://www.gittip.com/rummik/" target="_blank" class="gittip"><i class="icon-gittip"></i></a>
+			<a href="https://twitter.com/rummik" target="_blank" class="twitter"><i class="icon-twitter-sign"></i></a>
+			<a href="https://github.com/rummik" target="_blank" class="github"><i class="icon-github"></i></a>
+		</div>
+
+		<script src="/js/telepathy.js"></script>
+	</body>
+</html>
