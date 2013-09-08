@@ -73,14 +73,22 @@ module.exports = function(grunt) {
 					basePath: 'www/',
 					preferOnline: true,
 					verbose: true,
-					timestamp: true
+					timestamp: true,
+
+					exclude: [
+						'img/icon-114x114.png',
+						'img/startup-320x480.png',
+						'img/startup-640x920.png',
+						'img/startup-640x1096.png'
+					]
 				},
 
 				src: [
 					'css/*.css',
 					'js/*.js',
 					'img/*.png',
-					'font/*',
+					'font/fontawesome*',
+					'font/*.woff',
 					'index.html'
 				],
 
