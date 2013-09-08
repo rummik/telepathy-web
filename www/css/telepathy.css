@@ -250,8 +250,8 @@ fieldset {
 }
 
 @media (max-width: 600px) {
-	input, button, a, div {
-		transition-property: none;
+	input, select, button, a, div {
+		transition: none !important;
 	}
 
 	.modal.open ~ .content-wrapper,
@@ -265,7 +265,6 @@ fieldset {
 	}
 
 	.modal.open ~ .modal-bg {
-		transition-property: none;
 		background: none;
 	}
 
@@ -301,6 +300,11 @@ fieldset {
 		width: 80%;
 		left: 10%;
 		margin: 0;
+	}
+
+	button {
+		font-size: 1.3em;
+		margin-left: 5px;
 	}
 }
 
