@@ -6,9 +6,6 @@
 	    Telepathy = require('telepathy'),
 	    telepathy = new Telepathy();
 
-	// todo: show dialog prompt for default username and master password
-
-	// google.com: u25YhZz44m
 	$('#domain').on('keydown', _.debounce(function() {
 		$('#password').text(telepathy.password({
 			alphabet: $('#lax').attr('checked') ?
