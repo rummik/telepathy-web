@@ -9,8 +9,10 @@
 	$('#domain').on('keydown', _.debounce(function() {
 		var domain = this.value.replace(/^\s+|\s+$/g, '');
 
-		if (!domain.length)
+		if (!domain.length) {
+			$('#password').html('&nbsp;');
 			return;
+		}
 
 		$('#password').text(telepathy.password({
 			alphabet: $('#lax').attr('checked') ?
