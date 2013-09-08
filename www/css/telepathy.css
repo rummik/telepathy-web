@@ -254,6 +254,34 @@ fieldset {
 		transition-property: none;
 	}
 
+	.modal.open ~ .content-wrapper,
+	.modal.open ~ .settings,
+	.modal.open ~ .social {
+		-webkit-filter: none;
+		-moz-filter: none;
+		-ms-filter: none;
+		-o-filter: none;
+		filter: none;
+	}
+
+	.modal.open ~ .modal-bg {
+		transition-property: none;
+		background: none;
+	}
+
+	.modal.open {
+		width: 100%;
+		height: 100%;
+		left: 0;
+		margin: 0;
+	}
+
+	.modal.open .controls {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+	}
+
 	.settings, .social {
 		display: inline-block;
 		width: auto;
