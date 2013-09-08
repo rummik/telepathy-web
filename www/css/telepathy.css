@@ -153,7 +153,7 @@ fieldset {
 	}
 
 .content-wrapper {
-	background: #222 url(background.png);
+	background: #222 url(/img/background.png);
 	height: 100%;
 	overflow: auto;
 }
@@ -274,4 +274,11 @@ fieldset {
 		left: 10%;
 		margin: 0;
 	}
+}
+
+@font-face {
+	font-family: 'Exo';
+	font-style: normal;
+	font-weight: 200;
+	src: local('Exo ExtraLight'), local('Exo-ExtraLight'), url(/font/Exo-ExtraLight.woff) format('woff');
 }

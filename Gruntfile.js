@@ -38,7 +38,7 @@ module.exports = function(grunt) {
 		browserify: {
 			dist: {
 				src: ['src/**/*.js'],
-				dest: 'www/telepathy.js'
+				dest: 'www/js/telepathy.js'
 			}
 		},
 

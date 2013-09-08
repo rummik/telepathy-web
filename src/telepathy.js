@@ -38,7 +38,11 @@
 		}
 	});
 
+	// Disable scroll if iOS standalone is happening
 	$(document).bind('touchmove', function(event) {
+		if (!window.navigator.standalone)
+			return;
+
 		event.preventDefault();
 		return false;
 	});
