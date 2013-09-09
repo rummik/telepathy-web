@@ -75,6 +75,17 @@ module.exports = function(grunt) {
 
 		manifest: {
 			dist: {
+				src: [
+					'css/*.css',
+					'js/*.js',
+					'img/*.png',
+					'font/fontawesome*',
+					'font/*.woff',
+					'index.html'
+				],
+
+				dest: 'www/manifest.appcache',
+
 				options: {
 					basePath: 'www/',
 					preferOnline: true,
@@ -87,18 +98,7 @@ module.exports = function(grunt) {
 						'img/startup-640x920.png',
 						'img/startup-640x1096.png'
 					]
-				},
-
-				src: [
-					'css/*.css',
-					'js/*.js',
-					'img/*.png',
-					'font/fontawesome*',
-					'font/*.woff',
-					'index.html'
-				],
-
-				dest: 'www/manifest.appcache'
+				}
 			}
 		}
 	});
