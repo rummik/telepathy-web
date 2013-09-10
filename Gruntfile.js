@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 		watch: {
 			packagejson: {
 				files: '<%= jshint.packagejson %>',
-				tasks: ['jshint:packagejson', 'browserify:dist']
+				tasks: ['jshint:packagejson', 'pkgreload']
 			},
 
 			gruntfile: {
@@ -42,8 +42,20 @@ module.exports = function(grunt) {
 				tasks: ['swig']
 			},
 
+			ln: {
+				files: 'www/build/**/*',
+				tasks: ['shell:link']
+			},
+
 			livereload: {
-				files: 'www/**/*',
+				files: [
+					'www/**/*',
+					'!www/build/**/*',
+					'!www/img/**/*',
+					'!www/font/**/*',
+					'!www/robots.txt',
+					'!www/sitemap.xml'
+				],
 
 				options: {
 					livereload: true
@@ -158,4 +170,9 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['test', 'build']);
 	grunt.registerTask('test', ['jshint']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
+
+	grunt.registerTask('pkgreload', 'Reload package.json', function() {
+		grunt.log.writeln('Reloading package.json');
+		grunt.config.data.pkg = grunt.file.readJSON('package.json');
+	});
 };
