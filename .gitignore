@@ -1,5 +1,9 @@
 docs
 node_modules
 npm-debug.log
-www/js/telepathy.js
+www/build
+www/v*-*
 www/manifest.appcache
+www/robots.txt
+www/sitemap.xml
+www/**/*.html
