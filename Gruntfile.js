@@ -39,7 +39,7 @@ module.exports = function(grunt) {
 
 			html: {
 				files: 'html/**/*.{swig,html}',
-				tasks: ['swig']
+				tasks: ['swig', 'htmlmin']
 			},
 
 			ln: {
@@ -155,6 +155,35 @@ module.exports = function(grunt) {
 					root: 'html/'
 				}
 			}
+		},
+
+		uglify: {
+			dist: {
+				files: {
+					'www/build/js/telepathy.js': 'www/build/js/telepathy.js'
+				}
+			}
+		},
+
+		htmlmin: {
+			dist: {
+				files: {
+					'www/index.html': 'www/index.html'
+				},
+
+				options: {
+					collapseWhitespace: true,
+					removeComments: true
+				}
+			}
+		},
+
+		cssmin: {
+			dist: {
+				files: {
+					'www/build/css/telepathy.css': 'www/build/css/telepathy.css'
+				}
+			}
 		}
 	});
 
@@ -166,10 +195,14 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-shell');
 	grunt.loadNpmTasks('grunt-swig');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-	grunt.registerTask('default', ['test', 'build']);
+	grunt.registerTask('default', ['test', 'build', 'minify']);
 	grunt.registerTask('test', ['jshint']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
+	grunt.registerTask('minify', ['uglify', 'htmlmin', 'cssmin']);
 
 	grunt.registerTask('pkgreload', 'Reload package.json', function() {
 		grunt.log.writeln('Reloading package.json');
