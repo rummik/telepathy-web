@@ -27,13 +27,24 @@ module.exports = function(grunt) {
 				tasks: ['jshint:gruntfile']
 			},
 
-			dist: {
+			js: {
 				files: '<%= jshint.dist %>',
 				tasks: ['jshint:dist', 'browserify:dist']
 			},
 
+			css: {
+				files: 'css/**/*.{less,css}',
+				tasks: ['less']
+			},
+
+			html: {
+				files: 'html/**/*.{swig,html}',
+				tasks: ['swig']
+			},
+
 			livereload: {
 				files: 'www/**/*',
+
 				options: {
 					livereload: true
 				}
@@ -42,15 +53,15 @@ module.exports = function(grunt) {
 
 		browserify: {
 			dist: {
-				src: ['src/**/*.js'],
-				dest: 'www/js/telepathy.js'
+				src: 'js/telepathy.js',
+				dest: 'www/build/js/telepathy.js'
 			}
 		},
 
 		jshint: {
 			packagejson: 'package.json',
 			gruntfile: 'Gruntfile.js',
-			dist: 'src/**/*.{js,json}',
+			dist: 'js/**/*.{js,json}',
 
 			options: {
 				curly: false,
@@ -76,11 +87,11 @@ module.exports = function(grunt) {
 		manifest: {
 			dist: {
 				src: [
-					'css/*.css',
-					'js/*.js',
-					'img/*.png',
-					'font/fontawesome*',
-					'font/*.woff',
+					'v<%= pkg.version %>/css/*.css',
+					'v<%= pkg.version %>/js/*.js',
+					'v<%= pkg.version %>/img/*.png',
+					'v<%= pkg.version %>/font/fontawesome*',
+					'v<%= pkg.version %>/font/*.woff',
 					'index.html'
 				],
 
@@ -93,11 +104,43 @@ module.exports = function(grunt) {
 					timestamp: true,
 
 					exclude: [
-						'img/icon-114x114.png',
-						'img/startup-320x480.png',
-						'img/startup-640x920.png',
-						'img/startup-640x1096.png'
+						'v<%= pkg.version %>/img/icon-114x114.png',
+						'v<%= pkg.version %>/img/startup-320x480.png',
+						'v<%= pkg.version %>/img/startup-640x920.png',
+						'v<%= pkg.version %>/img/startup-640x1096.png'
 					]
+				}
+			}
+		},
+
+		less: {
+			dist: {
+				files: {
+					'www/build/css/telepathy.css': 'css/telepathy.less'
+				},
+
+				options: {
+					paths: ['css']
+				}
+			}
+		},
+
+		shell: {
+			link: {
+				command: 'rm www/v*-*; ln -s build www/v<%= pkg.version %>'
+			}
+		},
+
+		swig: {
+			index: {
+				dest: 'www/',
+				cwd: 'html/',
+				src: 'index.html',
+
+				version: '<%= pkg.version %>',
+
+				init: {
+					root: 'html/'
 				}
 			}
 		}
@@ -108,8 +151,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-browserify');
 	grunt.loadNpmTasks('grunt-manifest');
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks('grunt-swig');
 
 	grunt.registerTask('default', ['test', 'build']);
 	grunt.registerTask('test', ['jshint']);
-	grunt.registerTask('build', ['browserify', 'manifest']);
+	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
 };
