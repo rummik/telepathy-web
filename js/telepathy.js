@@ -3,11 +3,8 @@
 
 	var $ = require('zepto-browserify').Zepto,
 	    _ = require('underscore')._,
-	    pack      = require('../package.json'),
 	    Telepathy = require('telepathy'),
 	    telepathy = new Telepathy();
-
-	$('.version').text('v' + pack.version);
 
 	$('#domain').on('keydown', _.debounce(function() {
 		var domain = this.value.replace(/^\s+|\s+$/g, '');
