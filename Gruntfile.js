@@ -152,7 +152,7 @@ module.exports = function(grunt) {
 				version: '<%= pkg.version %>',
 
 				init: {
-					root: 'html/'
+					root: 'html'
 				}
 			}
 		},
