@@ -103,7 +103,8 @@ module.exports = function(grunt) {
 					before: false,
 					after: false,
 					beforeEach: false,
-					afterEach: false
+					afterEach: false,
+					__html__: false
 				}
 			}
 		},
@@ -215,9 +216,9 @@ module.exports = function(grunt) {
 				frameworks: ['mocha', 'browserify'],
 
 				files: [
-					'test/**/*_test.js',
 					'www/**/*.html',
-					'test/**/*.html'
+					'test/**/*.html',
+					'test/**/*_test.js'
 				],
 
 				browserify: {
@@ -225,8 +226,9 @@ module.exports = function(grunt) {
 				},
 
 				preprocessors: {
-					'*.js': ['browserify'],
-					'*.html': ['html2js']
+					'test/**/*.js': ['browserify'],
+					'test/**/*.html': ['html2js'],
+					'www/**/*.html': ['html2js']
 				}
 			}
 		}
