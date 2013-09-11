@@ -5,9 +5,15 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		connect: {
-			server: {
+			test: {
 				options: {
 					port: 8000,
+					base: 'www',
+				}
+			},
+
+			server: {
+				options: {
 					hostname: '*',
 					base: 'www',
 					keepalive: true,
@@ -248,7 +254,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['test', 'build', 'minify']);
-	grunt.registerTask('test', ['jshint', 'karma:phantom']);
+	grunt.registerTask('test', ['jshint', 'connect:test', 'karma:phantom']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
 	grunt.registerTask('minify', ['htmlmin', 'cssmin']);
 
