@@ -29,7 +29,12 @@ module.exports = function(grunt) {
 
 			js: {
 				files: '<%= jshint.dist %>',
-				tasks: ['jshint:dist', 'browserify:dist']
+				tasks: ['jshint:dist', 'karma:unit:run', 'browserify:dist']
+			},
+
+			test: {
+				files: '<%= jshint.test %>',
+				tasks: ['jshint:test', 'karma:unit:run']
 			},
 
 			css: {
@@ -74,6 +79,7 @@ module.exports = function(grunt) {
 			packagejson: 'package.json',
 			gruntfile: 'Gruntfile.js',
 			dist: 'js/**/*.{js,json}',
+			test: 'test/**/*.{js,json}',
 
 			options: {
 				curly: false,
@@ -92,6 +98,9 @@ module.exports = function(grunt) {
 				node: true,
 
 				globals: {
+					describe: true,
+					it: true,
+					expect: true
 				}
 			}
 		},
@@ -185,6 +194,35 @@ module.exports = function(grunt) {
 					'www/build/css/telepathy.css': 'www/build/css/telepathy.css'
 				}
 			}
+		},
+
+		karma: {
+			unit: {
+				hostname: '0.0.0.0',
+				browsers: ['Firefox', 'Chrome']
+			},
+
+			phantom: {
+				singleRun: true,
+				browsers: ['PhantomJS']
+			},
+
+			options: {
+				reporters: 'dots',
+				frameworks: ['jasmine', 'browserify'],
+
+				files: [
+					'test/**/*.js'
+				],
+
+				browserify: {
+					watch: true
+				},
+
+				preprocessors: {
+					'test/**/*.js': ['browserify']
+				}
+			}
 		}
 	});
 
@@ -199,9 +237,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-htmlmin');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['test', 'build', 'minify']);
-	grunt.registerTask('test', ['jshint']);
+	grunt.registerTask('test', ['jshint', 'browserify', 'karma:phantom']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
 	grunt.registerTask('minify', ['uglify', 'htmlmin', 'cssmin']);
 
