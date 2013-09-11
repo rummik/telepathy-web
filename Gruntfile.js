@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 			},
 
 			test: {
-				files: '<%= jshint.test %>',
+				files: ['<%= jshint.test %>'],
 				tasks: ['jshint:test', 'karma:unit:run']
 			},
 
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 
 			html: {
 				files: 'html/**/*.{swig,html}',
-				tasks: ['swig', 'htmlmin']
+				tasks: ['swig', 'htmlmin', 'karma:unit:run']
 			},
 
 			ln: {
@@ -98,9 +98,12 @@ module.exports = function(grunt) {
 				node: true,
 
 				globals: {
-					describe: true,
-					it: true,
-					expect: true
+					describe: false,
+					it: false,
+					before: false,
+					after: false,
+					beforeEach: false,
+					afterEach: false
 				}
 			}
 		},
@@ -212,7 +215,9 @@ module.exports = function(grunt) {
 				frameworks: ['mocha', 'browserify'],
 
 				files: [
-					'test/**/*_test.js'
+					'test/**/*_test.js',
+					'www/**/*.html',
+					'test/**/*.html'
 				],
 
 				browserify: {
@@ -220,7 +225,8 @@ module.exports = function(grunt) {
 				},
 
 				preprocessors: {
-					'test/**/*.js': ['browserify']
+					'*.js': ['browserify'],
+					'*.html': ['html2js']
 				}
 			}
 		}
