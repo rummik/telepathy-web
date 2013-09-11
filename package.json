@@ -1,7 +1,7 @@
 {
 	"name": "telepathy-web",
 	"description": "A telepathic password manager for browsers",
-	"version": "0.1.10-0.3.1",
+	"version": "0.1.10-0.3.2",
 	"homepage": "https://github.com/rummik/telepathy-web",
 	"author": {
 		"name": "rummik",
@@ -28,7 +28,7 @@
 		"test": "grunt test"
 	},
 	"dependencies": {
-		"telepathy": "~0.3.1",
+		"telepathy": "~0.3.2",
 		"zepto-browserify": "~1.0.0",
 		"underscore": "~1.5.1"
 	},
