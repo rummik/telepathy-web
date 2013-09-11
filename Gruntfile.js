@@ -254,7 +254,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['test', 'build', 'minify']);
-	grunt.registerTask('test', ['jshint', 'connect:test', 'karma:phantom']);
+	grunt.registerTask('test', ['jshint', 'browserify', 'swig', 'connect:test', 'karma:phantom']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
 	grunt.registerTask('minify', ['htmlmin', 'cssmin']);
 
