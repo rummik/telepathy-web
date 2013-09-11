@@ -199,7 +199,7 @@ module.exports = function(grunt) {
 		karma: {
 			unit: {
 				hostname: '0.0.0.0',
-				browsers: ['Firefox', 'Chrome']
+				browsers: ['Firefox', 'Chrome', 'PhantomJS']
 			},
 
 			phantom: {
@@ -209,10 +209,10 @@ module.exports = function(grunt) {
 
 			options: {
 				reporters: 'dots',
-				frameworks: ['jasmine', 'browserify'],
+				frameworks: ['mocha', 'browserify'],
 
 				files: [
-					'test/**/*.js'
+					'test/**/*_test.js'
 				],
 
 				browserify: {
@@ -240,7 +240,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['test', 'build', 'minify']);
-	grunt.registerTask('test', ['jshint', 'browserify', 'karma:phantom']);
+	grunt.registerTask('test', ['jshint', 'karma:phantom']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
 	grunt.registerTask('minify', ['uglify', 'htmlmin', 'cssmin']);
 

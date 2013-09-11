@@ -1,17 +1,18 @@
-var Telepathy = require('telepathy');
+var Telepathy = require('telepathy'),
+    should    = require('should');
 
 describe('Telepathy', function() {
 	describe('#password', function() {
 		it('should work with no args', function() {
-			expect(new Telepathy().password()).toBe('jWEepHLxI5');
+			new Telepathy().password().should.equal('jWEepHLxI5');
 		});
 
 		it('accepts an alphabet option', function() {
-			expect(new Telepathy().password({ alphabet: Telepathy.alphabet.base16 })).toBe('1b7852b855');
+			new Telepathy().password({ alphabet: Telepathy.alphabet.base16 }).should.equal('1b7852b855');
 		});
 
 		it('accepts a length option', function() {
-			expect(new Telepathy().password({ length: 5 })).toBe('HLxI5');
+			new Telepathy().password({ length: 5 }).should.equal('HLxI5');
 		});
 	});
 });
