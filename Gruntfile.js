@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			test: {
 				options: {
 					port: 8000,
-					base: 'www',
+					base: 'tmp'
 				}
 			},
 
@@ -75,6 +75,11 @@ module.exports = function(grunt) {
 		},
 
 		browserify: {
+			test: {
+				src: 'js/telepathy.js',
+				dest: 'tmp/build/js/telepathy.js'
+			},
+
 			dist: {
 				src: 'js/telepathy.js',
 				dest: 'www/build/js/telepathy.js'
@@ -163,16 +168,22 @@ module.exports = function(grunt) {
 		},
 
 		swig: {
+			test: {
+				dest: 'tmp/',
+				cwd: 'html',
+				src: 'index.html',
+				version: '<%= pkg.version %>',
+				generateSitemap: false,
+				generateRobotstxt: false,
+				init: { root: 'html' }
+			},
+
 			index: {
 				dest: 'www/',
-				cwd: 'html/',
+				cwd: 'html',
 				src: 'index.html',
-
 				version: '<%= pkg.version %>',
-
-				init: {
-					root: 'html'
-				}
+				init: { root: 'html' }
 			}
 		},
 
@@ -254,8 +265,8 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default', ['test', 'build', 'minify']);
-	grunt.registerTask('test', ['jshint', 'browserify', 'swig', 'connect:test', 'karma:phantom']);
-	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
+	grunt.registerTask('test', ['jshint', 'browserify:test', 'swig:test', 'connect:test', 'karma:phantom']);
+	grunt.registerTask('build', ['browserify:dist', 'less', 'shell:link', 'swig:index', 'manifest']);
 	grunt.registerTask('minify', ['htmlmin', 'cssmin']);
 
 	grunt.registerTask('pkgreload', 'Reload package.json', function() {
