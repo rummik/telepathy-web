@@ -250,7 +250,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('default', ['test', 'build', 'minify']);
 	grunt.registerTask('test', ['jshint', 'karma:phantom']);
 	grunt.registerTask('build', ['browserify', 'less', 'shell:link', 'swig', 'manifest']);
-	grunt.registerTask('minify', ['uglify', 'htmlmin', 'cssmin']);
+	grunt.registerTask('minify', ['htmlmin', 'cssmin']);
 
 	grunt.registerTask('pkgreload', 'Reload package.json', function() {
 		grunt.log.writeln('Reloading package.json');
