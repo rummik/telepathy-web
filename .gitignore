@@ -7,3 +7,4 @@ www/manifest.appcache
 www/robots.txt
 www/sitemap.xml
 www/*.html
+tmp
