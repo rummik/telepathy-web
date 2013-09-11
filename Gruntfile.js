@@ -233,6 +233,7 @@ module.exports = function(grunt) {
 				frameworks: ['mocha', 'browserify'],
 
 				files: [
+					'tmp/**/*.html',
 					'www/**/*.html',
 					'test/**/*.html',
 					'test/**/*_test.js'
@@ -245,7 +246,8 @@ module.exports = function(grunt) {
 				preprocessors: {
 					'test/**/*.js': ['browserify'],
 					'test/**/*.html': ['html2js'],
-					'www/**/*.html': ['html2js']
+					'www/**/*.html': ['html2js'],
+					'tmp/**/*.html': ['html2js']
 				}
 			}
 		}

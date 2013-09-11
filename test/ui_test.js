@@ -4,7 +4,7 @@ var $ = require('zepto-browserify').Zepto,
 
 describe('index.html', function() {
 	before(function(done) {
-		document.body.innerHTML = __html__['www/index.html'].replace(/(v\d+\.\d+\.\d+-\d+\.\d+\.\d+\/)/g, 'http://localhost:8000/$1');
+		document.body.innerHTML = (__html__['www/index.html'] || __html__['tmp/index.html']).replace(/(v\d+\.\d+\.\d+-\d+\.\d+\.\d+\/)/g, 'http://localhost:8000/$1');
 
 		var script = document.createElement('script');
 		script.src = 'http://localhost:8000/build/js/telepathy.js';
