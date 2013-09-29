@@ -19,6 +19,8 @@
 			algorithm: UI.settings['algorithm'],
 			user: UI.settings['default-username'],
 			secret: UI.settings['shared-secret'],
+			length: (+$('#length').val()) || UI.settings['default-length'],
+			index: (+$('#index').val()) || UI.settings['default-index'],
 
 			alphabet: $('input[name=lax]:checked').val() == 'yes' ?
 			            Telepathy.alphabet.base62 :
@@ -30,7 +32,7 @@
 		$(this).parents('.modal').removeClass('open');
 	});
 
-	$('.modal-close, input[name=lax]').on('click change', function() {
+	$('.modal-close, input[name=lax], #index, #length').on('click change keydown', function() {
 		$('#domain').trigger('keydown');
 	});
 
@@ -74,7 +76,9 @@
 			'default-username': '',
 			'shared-secret': '',
 			'save-secret': 'no',
-			'algorithm': 'SHA256'
+			'algorithm': 'SHA256',
+			'default-length': 10,
+			'default-index': 0
 		},
 
 		save: function() {
@@ -115,6 +119,9 @@
 						break;
 				}
 			});
+
+			$('#index').prop('placeholder', this.settings['default-index']);
+			$('#length').prop('placeholder', this.settings['default-length']);
 		}
 	};
 

@@ -44,6 +44,16 @@
 				</div>
 
 				<div>
+					<label for="default-length">Default Length</label>
+					<input name="default-length" id="default-length" type="number" step="1">
+				</div>
+
+				<div>
+					<label for="default-index">Default Index</label>
+					<input name="default-index" id="default-index" type="number" step="1">
+				</div>
+
+				<div>
 					<label for="algorithm">Algorithm</label>
 					<select name="algorithm" id="algorithm">
 						<option value="SHA224">SHA-224</option>
@@ -68,12 +78,15 @@
 				<input id="domain" type="url" autocapitalize="off" autocorrect="off" placeholder="Example / example.com">
 				<div id="password">&nbsp;</div>
 				<fieldset>
-					<!--
 					<div>
 						<label for="index">Password Index</label>
-						<input name="password-index" value="0">
+						<input id="index">
 					</div>
-					-->
+
+					<div>
+						<label for="length">Password Length</label>
+						<input id="length">
+					</div>
 
 					<div>
 						<label>Lax Mode</label>
