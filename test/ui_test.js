@@ -3,7 +3,10 @@ var $ = require('zepto-browserify').Zepto,
     should = require('should');
 
 describe('index.html', function() {
-	before(function(done) {
+	beforeEach(function(done) {
+		// reset localStorage
+		localStorage.telepathyWeb = '{}';
+
 		document.body.innerHTML = (__html__['www/index.html'] || __html__['tmp/index.html']).replace(/(v\d+\.\d+\.\d+-\d+\.\d+\.\d+\/)/g, 'http://localhost:8000/$1');
 
 		var script = document.createElement('script');
@@ -23,6 +26,30 @@ describe('index.html', function() {
 
 			_.defer(function() {
 				$('#password').text().should.equal('z<u9N_[c"R');
+				done();
+			});
+		});
+	});
+
+	describe('#index.keydown', function() {
+		it('should change the password index', function(done) {
+			$('#domain').val('example.com');
+			$('#index').val('1').trigger('keydown');
+
+			_.defer(function() {
+				$('#password').text().should.equal('g:3WGYj0}~');
+				done();
+			});
+		});
+	});
+
+	describe('#length.keydown', function() {
+		it('should change the password length', function(done) {
+			$('#domain').val('example.com');
+			$('#length').val('8').trigger('keydown');
+
+			_.defer(function() {
+				$('#password').text().should.equal('u9N_[c"R');
 				done();
 			});
 		});
