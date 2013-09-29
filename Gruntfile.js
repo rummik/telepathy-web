@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 
 			js: {
 				files: '<%= jshint.dist %>',
-				tasks: ['jshint:dist', 'karma:unit:run', 'browserify:dist']
+				tasks: ['jshint:dist', 'browserify:dist', 'karma:unit:run']
 			},
 
 			test: {
