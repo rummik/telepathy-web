@@ -4,7 +4,23 @@
 	}
 
 	h1 {
-		margin-top: 0;
+		font-size: 1em;
+		position: absolute;
+		bottom: 15px;
+		left: 45px;
+		margin: 0;
+	}
+
+	h1 .version:before {
+		content: ' ';
+	}
+
+	h1 small {
+		display: none;
+	}
+
+	#domain {
+		margin-top: 10px;
 	}
 
 	.modal.open ~ .content-wrapper,
@@ -23,7 +39,7 @@
 
 	.modal.open {
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
 		left: 0;
 		margin: 0;
 	}
@@ -50,9 +66,15 @@
 	}
 
 	.modal {
-		width: 80%;
-		left: 10%;
+		top: -300%;
+		left: 0;
+		box-shadow: none;
 		margin: 0;
+		overflow-x: hidden;
+	}
+
+	.modal fieldset div:last-child {
+		margin-bottom: 70px;
 	}
 
 	button {
@@ -60,4 +82,3 @@
 		margin-left: 5px;
 	}
 }
-
