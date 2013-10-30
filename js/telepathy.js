@@ -73,6 +73,7 @@
 
 	$('.save-settings').on('click', function() {
 		UI.save();
+		UI.load();
 	});
 
 	$('.reset-settings').on('click', function() {
