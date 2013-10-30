@@ -80,6 +80,10 @@
 		UI.load();
 	});
 
+	$(window).on('blur', function() {
+		$('#domain').val('').trigger('keydown');
+	});
+
 	var UI = {
 		settings: {
 		},
