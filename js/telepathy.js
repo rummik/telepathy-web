@@ -67,7 +67,7 @@
 			if (!$this.prop('name'))
 				return;
 
-			UI.settings[$this.prop('name')] = $(this).val();
+			UI.settings[$this.prop('name')] = $this.val();
 		});
 	});
 
