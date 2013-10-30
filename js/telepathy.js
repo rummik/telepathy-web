@@ -6,6 +6,14 @@
 	    Telepathy = require('telepathy'),
 	    telepathy = new Telepathy();
 
+	// Populate values for index/length select boxes
+	var i;
+	for (i=4; i<=100; i+=(i<30?1:(i<50?5:10)))
+		$('#length,#default-length').append('<option value="' + i +'">' + i + '</option>');
+
+	for (i=0; i<=50; i++)
+		$('#index,#default-index').append('<option value="' + i + '">' + i + '</option>');
+
 	$('#domain').on('keydown', _.debounce(function() {
 		var domain = this.value.replace(/^\s+|\s+$/g, '');
 
@@ -123,8 +131,8 @@
 				}
 			});
 
-			$('#index').prop('placeholder', this.settings['default-index']);
-			$('#length').prop('placeholder', this.settings['default-length']);
+			$('#index').val(this.settings['default-index']);
+			$('#length').val(this.settings['default-length']);
 		}
 	};
 
