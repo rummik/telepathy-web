@@ -52,7 +52,7 @@
 		});
 	}
 
-	$('#settings input, #settings option').each(function() {
+	$('#settings input, #settings select').each(function() {
 		var $this = $(this);
 
 		$this.on('change', function() {
