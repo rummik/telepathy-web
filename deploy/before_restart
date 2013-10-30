@@ -1,0 +1,9 @@
+#!/bin/sh
+# clear cached assets (unversioned/ignored files)
+git clean -x -f -- www
+
+# clean unversioned files from node_modules (e.g. old submodules)
+git clean -d -f -- node_modules
+
+# install npm modules
+npm install
