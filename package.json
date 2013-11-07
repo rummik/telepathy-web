@@ -18,7 +18,7 @@
 	"licenses": [
 		{
 			"type": "MPL",
-			"url": "https://github.com/rummik/telepathy-web/blob/master/LICENSE-MPL"
+			"url": "https://github.com/rummik/telepathy-web/blob/master/LICENSE.md"
 		}
 	],
 	"engines": {
