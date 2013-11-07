@@ -8,8 +8,8 @@ module.exports = function(grunt) {
 			test: {
 				options: {
 					port: 8000,
-					base: 'tmp'
-				}
+					base: 'tmp',
+				},
 			},
 
 			server: {
@@ -17,45 +17,45 @@ module.exports = function(grunt) {
 					hostname: '*',
 					base: 'www',
 					keepalive: true,
-					livereload: true
-				}
-			}
+					livereload: true,
+				},
+			},
 		},
 
 		watch: {
 			packagejson: {
 				files: '<%= jshint.packagejson %>',
-				tasks: ['jshint:packagejson', 'pkgreload', 'swig', 'htmlmin', 'shell:link']
+				tasks: ['jshint:packagejson', 'pkgreload', 'swig', 'htmlmin', 'shell:link'],
 			},
 
 			gruntfile: {
 				files: '<%= jshint.gruntfile %>',
-				tasks: ['jshint:gruntfile']
+				tasks: ['jshint:gruntfile'],
 			},
 
 			js: {
 				files: '<%= jshint.dist %>',
-				tasks: ['jshint:dist', 'browserify:dist', 'karma:unit:run']
+				tasks: ['jshint:dist', 'browserify:dist', 'karma:unit:run'],
 			},
 
 			test: {
 				files: ['<%= jshint.test %>'],
-				tasks: ['jshint:test', 'karma:unit:run']
+				tasks: ['jshint:test', 'karma:unit:run'],
 			},
 
 			css: {
 				files: 'css/**/*.{less,css}',
-				tasks: ['less']
+				tasks: ['less'],
 			},
 
 			html: {
 				files: 'html/**/*.{swig,html}',
-				tasks: ['swig', 'htmlmin', 'karma:unit:run']
+				tasks: ['swig', 'htmlmin', 'karma:unit:run'],
 			},
 
 			ln: {
 				files: 'www/build/**/*',
-				tasks: ['shell:link']
+				tasks: ['shell:link'],
 			},
 
 			livereload: {
@@ -65,25 +65,25 @@ module.exports = function(grunt) {
 					'!www/img/**/*',
 					'!www/font/**/*',
 					'!www/robots.txt',
-					'!www/sitemap.xml'
+					'!www/sitemap.xml',
 				],
 
 				options: {
-					livereload: true
-				}
-			}
+					livereload: true,
+				},
+			},
 		},
 
 		browserify: {
 			test: {
 				src: 'js/telepathy.js',
-				dest: 'tmp/build/js/telepathy.js'
+				dest: 'tmp/build/js/telepathy.js',
 			},
 
 			dist: {
 				src: 'js/telepathy.js',
-				dest: 'www/build/js/telepathy.js'
-			}
+				dest: 'www/build/js/telepathy.js',
+			},
 		},
 
 		jshint: {
@@ -93,8 +93,8 @@ module.exports = function(grunt) {
 			test: 'test/**/*.{js,json}',
 
 			options: {
-				jshintrc: '.jshintrc'
-			}
+				jshintrc: '.jshintrc',
+			},
 		},
 
 		manifest: {
@@ -105,7 +105,7 @@ module.exports = function(grunt) {
 					'v<%= pkg.version %>/img/*.png',
 					'v<%= pkg.version %>/font/fontawesome*',
 					'v<%= pkg.version %>/font/*.woff',
-					'index.html'
+					'index.html',
 				],
 
 				dest: 'www/manifest.appcache',
@@ -120,28 +120,28 @@ module.exports = function(grunt) {
 						'v<%= pkg.version %>/img/icon-114x114.png',
 						'v<%= pkg.version %>/img/startup-320x480.png',
 						'v<%= pkg.version %>/img/startup-640x920.png',
-						'v<%= pkg.version %>/img/startup-640x1096.png'
-					]
-				}
-			}
+						'v<%= pkg.version %>/img/startup-640x1096.png',
+					],
+				},
+			},
 		},
 
 		less: {
 			dist: {
 				files: {
-					'www/build/css/telepathy.css': 'css/telepathy.less'
+					'www/build/css/telepathy.css': 'css/telepathy.less',
 				},
 
 				options: {
-					paths: ['css']
-				}
-			}
+					paths: ['css'],
+				},
+			},
 		},
 
 		shell: {
 			link: {
-				command: 'rm www/v*-*; ln -s build www/v<%= pkg.version %>'
-			}
+				command: 'rm www/v*-*; ln -s build www/v<%= pkg.version %>',
+			},
 		},
 
 		swig: {
@@ -152,7 +152,7 @@ module.exports = function(grunt) {
 				version: '<%= pkg.version %>',
 				generateSitemap: false,
 				generateRobotstxt: false,
-				init: { root: 'html' }
+				init: { root: 'html' },
 			},
 
 			index: {
@@ -160,16 +160,16 @@ module.exports = function(grunt) {
 				cwd: 'html',
 				src: 'index.html',
 				version: '<%= pkg.version %>',
-				init: { root: 'html' }
-			}
+				init: { root: 'html' },
+			},
 		},
 
 		uglify: {
 			dist: {
 				files: {
-					'www/build/js/telepathy.js': 'www/build/js/telepathy.js'
-				}
-			}
+					'www/build/js/telepathy.js': 'www/build/js/telepathy.js',
+				},
+			},
 		},
 
 		htmlmin: {
@@ -181,28 +181,28 @@ module.exports = function(grunt) {
 				options: {
 					removeAttributeQuotes: true,
 					collapseWhitespace: true,
-					removeComments: true
-				}
-			}
+					removeComments: true,
+				},
+			},
 		},
 
 		cssmin: {
 			dist: {
 				files: {
-					'www/build/css/telepathy.css': 'www/build/css/telepathy.css'
-				}
-			}
+					'www/build/css/telepathy.css': 'www/build/css/telepathy.css',
+				},
+			},
 		},
 
 		karma: {
 			unit: {
 				hostname: '0.0.0.0',
-				browsers: ['Firefox', 'Chrome', 'PhantomJS']
+				browsers: ['Firefox', 'Chrome', 'PhantomJS'],
 			},
 
 			phantom: {
 				singleRun: true,
-				browsers: ['PhantomJS']
+				browsers: ['PhantomJS'],
 			},
 
 			options: {
@@ -213,21 +213,21 @@ module.exports = function(grunt) {
 					'tmp/**/*.html',
 					'www/**/*.html',
 					'test/**/*.html',
-					'test/**/*_test.js'
+					'test/**/*_test.js',
 				],
 
 				browserify: {
-					watch: true
+					watch: true,
 				},
 
 				preprocessors: {
 					'test/**/*.js': ['browserify'],
 					'test/**/*.html': ['html2js'],
 					'www/**/*.html': ['html2js'],
-					'tmp/**/*.html': ['html2js']
-				}
-			}
-		}
+					'tmp/**/*.html': ['html2js'],
+				},
+			},
+		},
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');

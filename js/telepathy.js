@@ -29,7 +29,7 @@
 
 			alphabet: $('input[name=lax]:checked').val() == 'yes' ?
 			            Telepathy.alphabet.base62 :
-			            Telepathy.alphabet.base94
+			            Telepathy.alphabet.base94,
 		}));
 	}));
 

@@ -21,7 +21,7 @@
 			'save-secret': 'no',
 			'algorithm': 'SHA256',
 			'default-length': 10,
-			'default-index': 0
+			'default-index': 0,
 		},
 
 		save: function() {
@@ -65,7 +65,7 @@
 
 			$('#index').val(this.settings['default-index']);
 			$('#length').val(this.settings['default-length']);
-		}
+		},
 	};
 
 	UI.load();
