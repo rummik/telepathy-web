@@ -1,13 +1,22 @@
-var $ = require('zepto-browserify').Zepto,
-    _ = require('underscore')._,
-    should = require('should');
+var $ = require('zepto-browserify').Zepto;
+var _ = require('underscore')._;
+
+require('should');
 
 describe('index.html', function() {
+	'use strict';
+
 	beforeEach(function(done) {
 		// reset localStorage
 		localStorage.telepathyWeb = '{}';
 
-		document.body.innerHTML = (__html__['www/index.html'] || __html__['tmp/index.html']).replace(/(v\d+\.\d+\.\d+-\d+\.\d+\.\d+\/)/g, 'http://localhost:8000/$1');
+		var html = window['__html__']['www/index.html'] ||
+		           window['__html__']['tmp/index.html'];
+
+		document.body.innerHTML = html.replace(
+			/(v\d+\.\d+\.\d+-\d+\.\d+\.\d+\/)/g,
+			'http://localhost:8000/$1'
+		);
 
 		var script = document.createElement('script');
 		script.src = 'http://localhost:8000/build/js/telepathy.js';

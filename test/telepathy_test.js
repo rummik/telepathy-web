@@ -1,7 +1,10 @@
-var Telepathy = require('telepathy'),
-    should    = require('should');
+var Telepathy = require('telepathy');
+
+require('should');
 
 describe('Telepathy', function() {
+	'use strict';
+
 	describe('#password', function() {
 		it('should work with no args', function() {
 			new Telepathy().password().should.equal('jWEepHLxI5');
