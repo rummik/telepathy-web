@@ -93,30 +93,7 @@ module.exports = function(grunt) {
 			test: 'test/**/*.{js,json}',
 
 			options: {
-				curly: false,
-				eqeqeq: false,
-				immed: true,
-				latedef: true,
-				newcap: true,
-				noarg: true,
-				sub: true,
-				undef: true,
-				boss: true,
-				eqnull: true,
-				smarttabs: true,
-				strict: false,
-				browser: true,
-				node: true,
-
-				globals: {
-					describe: false,
-					it: false,
-					before: false,
-					after: false,
-					beforeEach: false,
-					afterEach: false,
-					__html__: false
-				}
+				jshintrc: '.jshintrc'
 			}
 		},
 
