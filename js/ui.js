@@ -25,8 +25,8 @@
 		},
 
 		save: function() {
-			var omit = this.settings['save-secret'] == 'no' ? 'shared-secret' : '',
-			    settings = _.omit(this.settings, omit);
+			var omit = this.settings['save-secret'] == 'no' ? 'shared-secret' : '';
+			var settings = _.omit(this.settings, omit);
 
 			localStorage.telepathyWeb = JSON.stringify({
 				settings: settings
@@ -36,8 +36,8 @@
 		},
 
 		load: function() {
-			var data = JSON.parse(localStorage.telepathyWeb || '{}'),
-			    that = this;
+			var data = JSON.parse(localStorage.telepathyWeb || '{}');
+			var that = this;
 
 			if (!data) return;
 

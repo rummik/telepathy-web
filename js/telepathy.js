@@ -1,11 +1,10 @@
 (function() {
 	'use strict';
 
-	var $ = require('zepto-browserify').Zepto,
-	    _ = require('underscore')._,
-	    Telepathy = require('telepathy'),
-	    telepathy = new Telepathy();
-
+	var $ = require('zepto-browserify').Zepto;
+	var _ = require('underscore')._;
+	var Telepathy = require('telepathy');
+	var telepathy = new Telepathy();
 	var UI = require('./ui.js');
 
 	require('./modals');
