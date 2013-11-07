@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 		watch: {
 			packagejson: {
 				files: '<%= jshint.packagejson %>',
-				tasks: ['jshint:packagejson', 'pkgreload']
+				tasks: ['jshint:packagejson', 'pkgreload', 'swig', 'htmlmin', 'shell:link']
 			},
 
 			gruntfile: {
