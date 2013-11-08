@@ -1,6 +1,3 @@
-@import 'font-awesome/font-awesome.less';
-@fa-font-path: '../font/font-awesome';
-
 body, input, select, button {
 	font-family: Exo, sans-serif;
 	font-weight: 200;
@@ -10,5 +7,30 @@ body, input, select, button {
 	font-family: 'Exo';
 	font-style: normal;
 	font-weight: 200;
-	src: local('Exo ExtraLight'), local('Exo-ExtraLight'), url(../font/Exo-ExtraLight.woff) format('woff');
+	src: local('Exo ExtraLight'), local('Exo-ExtraLight'),
+	     url(../font/Exo-ExtraLight.woff) format('woff'),
+	     url(../font/Exo-ExtraLight.ttf) format('truetype');
 }
+
+@font-face {
+	font-family: 'FontAwesome';
+	font-weight: normal;
+	font-style: normal;
+	src: url(../font/font-awesome/fontawesome-webfont.eot);
+	src: url(../font/font-awesome/fontawesome-webfont.eot#iefix) format('embedded-opentype'),
+	     url(../font/font-awesome/fontawesome-webfont.woff) format('woff'),
+	     url(../font/font-awesome/fontawesome-webfont.ttf) format('truetype'),
+	     url(../font/font-awesome/fontawesome-webfont.svg#fontawesomeregular) format('svg');
+}
+
+@import 'font-awesome/variables';
+@import 'font-awesome/mixins';
+@import 'font-awesome/core';
+//@import 'font-awesome/larger';
+//@import 'font-awesome/fixed-width';
+//@import 'font-awesome/list';
+//@import 'font-awesome/bordered-pulled';
+//@import 'font-awesome/spinning';
+//@import 'font-awesome/rotated-flipped';
+//@import 'font-awesome/stacked';
+@import 'font-awesome/icons';
