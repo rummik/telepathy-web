@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 					'v<%= pkg.version %>/css/*.css',
 					'v<%= pkg.version %>/js/*.js',
 					'v<%= pkg.version %>/img/*.png',
-					'v<%= pkg.version %>/font/fontawesome*',
+					'v<%= pkg.version %>/font/font-awesome/*',
 					'v<%= pkg.version %>/font/*.woff',
 					'index.html',
 				],
