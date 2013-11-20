@@ -33,6 +33,10 @@
 		}));
 	}));
 
+	$('#password').on('focus click', _.debounce(function() {
+		this.select();
+	}));
+
 	$('.modal-close, input[name=lax], #index, #length').on('click change keydown', function() {
 		$('#domain').trigger('keydown');
 	});
