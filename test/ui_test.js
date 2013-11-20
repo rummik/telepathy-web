@@ -34,7 +34,7 @@ describe('index.html', function() {
 			$('#domain').val('example.com').trigger('keydown');
 
 			_.defer(function() {
-				$('#password').text().should.equal('z<u9N_[c"R');
+				$('#password').val().should.equal('z<u9N_[c"R');
 				done();
 			});
 		});
@@ -46,7 +46,7 @@ describe('index.html', function() {
 			$('#index').val('1').trigger('keydown');
 
 			_.defer(function() {
-				$('#password').text().should.equal('g:3WGYj0}~');
+				$('#password').val().should.equal('g:3WGYj0}~');
 				done();
 			});
 		});
@@ -58,7 +58,7 @@ describe('index.html', function() {
 			$('#length').val('8').trigger('keydown');
 
 			_.defer(function() {
-				$('#password').text().should.equal('u9N_[c"R');
+				$('#password').val().should.equal('u9N_[c"R');
 				done();
 			});
 		});
