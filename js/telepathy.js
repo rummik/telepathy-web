@@ -15,11 +15,11 @@
 		var domain = this.value.replace(/^\s+|\s+$/g, '');
 
 		if (!domain.length) {
-			$('#password').html('&nbsp;');
+			$('#password').val('');
 			return;
 		}
 
-		$('#password').text(telepathy.password({
+		$('#password').val(telepathy.password({
 			domain: domain,
 			algorithm: UI.settings['algorithm'],
 			user: UI.settings['default-username'],
@@ -38,6 +38,6 @@
 	});
 
 	$(window).on('blur', function() {
-		$('#domain').val('').trigger('keydown');
+		$('#domain, #password').val('');
 	});
 })();
