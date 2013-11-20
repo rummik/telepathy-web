@@ -10,18 +10,6 @@ A telepathic password manager for browsers.
 [gittip]: https://www.gittip.com/rummik/
 
 
-## Getting Started
-_(Coming soon)_
-
-
-## Documentation
-_(Coming soon)_
-
-
-## Examples
-_(Coming soon)_
-
-
 ## Contributing
 Please see the [Chameleoid Styleguide][] before contributing.
 
@@ -30,10 +18,6 @@ changed functionality.  Lint and test your code using [Grunt][].
 
 [Chameleoid Styleguide]: https://github.com/chameleoid/style
 [Grunt]: http://gruntjs.com/
-
-
-## Release History
-_(Nothing yet)_
 
 
 ## License
