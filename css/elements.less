@@ -18,8 +18,19 @@ input, select, button, a, div {
 input, select, button, .modal, .modal-bg {
 	transition-duration: 0.5s;
 	transition-timing-function: ease-in-out;
-	transition-property: box-shadow, background, color, opacity,
-	                     -webkit-filter, -moz-filter, -ms-filter, -o-filter, filter;
+}
+
+input, select, button {
+	transition-property: box-shadow, background, color, -webkit-filter,
+	                     -moz-filter, -ms-filter, -o-filter, filter;
+}
+
+.modal {
+	transition-property: top;
+}
+
+.modal-bg {
+	transition-property: z-index, background;
 }
 
 a {
