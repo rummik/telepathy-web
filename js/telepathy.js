@@ -41,6 +41,14 @@
 		$('#domain').trigger('keydown');
 	});
 
+	$(window).on('keydown', function(event) {
+		if (event.keyCode != 27) // escape key
+			return;
+
+		$('#domain, #password').val('');
+		$('#domain').focus();
+	});
+
 	$(window).on('blur', function() {
 		$('#domain, #password').val('');
 	});
