@@ -41,15 +41,16 @@
 		$('#domain').trigger('keydown');
 	});
 
-	$(window).on('keydown', function(event) {
-		if (event.keyCode != 27) // escape key
+	$(window).on('blur focus keydown load', _.debounce(function(event) {
+		// do nothing if we have an open modal
+		if ($('.modal.open').length)
+			return;
+
+		// escape key
+		if (event.type == 'keydown' && event.keyCode != 27)
 			return;
 
 		$('#domain, #password').val('');
 		$('#domain').focus();
-	});
-
-	$(window).on('blur', function() {
-		$('#domain, #password').val('');
-	});
+	}));
 })();
